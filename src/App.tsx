@@ -20,7 +20,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import "./App.css";
-
+const API_URL = import.meta.env.VITE_API_URL;
 const navItems = [
   { label: "Overview", icon: LayoutDashboard },
   { label: "Skill Gap Analysis", icon: Target },
@@ -250,7 +250,7 @@ const readinessScore = analysisResult
     .filter(Boolean);
 
   try {
-    const response = await fetch("http://127.0.0.1:8000/skill-gap", {
+    const response = await fetch(`${API_URL}/skill-gap`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -295,7 +295,7 @@ const readinessScore = analysisResult
     }
 
     const response = await fetch(
-      "http://127.0.0.1:8000/career-roadmap",
+      `${API_URL}/career-roadmap`,
       {
         method: "POST",
         headers: {
@@ -1284,7 +1284,7 @@ setInterviewScore(null);
 
 try {
   const response = await fetch(
-    "http://127.0.0.1:8000/interview/evaluate",
+    `${API_URL}/interview/evaluate`,
     {
       method: "POST",
       headers: {
